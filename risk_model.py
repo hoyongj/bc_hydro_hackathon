@@ -130,6 +130,7 @@ def build_risk_table(
     )
     df["risk_tolerance"] = df["risk_tolerance"].fillna("Med")
 
+
     # ------------------------------------------------------------------ #
     # Composite calculations
     # ------------------------------------------------------------------ #

@@ -8,6 +8,7 @@ DEFAULT_VENDOR_INV = "BC Hydro - Vendor and Inventory Data.xlsx"
 DEFAULT_ALL_VENDOR = "BC Hydro - All Vendor Data.xlsx"
 DEFAULT_TOLERANCE  = "BC Hydro - SC risk tolerance by category.xlsx"
 DEFAULT_LPI        = "Logistics Performance Index (LPI) - 2023.xlsx"
+DEFAULT_CATEGORY   = "BC Hydro - Category Description.xlsx"
 
 def _args():
     p = argparse.ArgumentParser("BC Hydro risk scorer")
@@ -25,6 +26,7 @@ def main():
         d / DEFAULT_ALL_VENDOR,
         d / DEFAULT_TOLERANCE,
         d / DEFAULT_LPI,
+        d / DEFAULT_CATEGORY,
     )
 
     if a.scenario == "base":

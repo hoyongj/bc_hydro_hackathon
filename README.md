@@ -20,9 +20,13 @@ pip install -r requirements.txt
 ## 2. Run Simulation
 
 ```sh
-python main.py --data-dir ./data --out risk_scores_base.csv
+python main.py --out risk_scores_base.csv
 ```
 
 ```sh
-python main.py --data-dir ./data --scenario us_tariff_25pct --out risk_scores_tariff25.csv
+python main.py --scenario us_tariff_25pct --out risk_scores_tariff25.csv
+```
+
+```sh
+python main.py --scenario us_tariff_50pct --out risk_scores_tariff50.csv
 ```

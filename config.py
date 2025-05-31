@@ -26,4 +26,5 @@ RISK_TOLERANCE_MULTIPLIER = {"High": 1.00, "Med": 0.85, "Low": 0.70}
 SCENARIOS = {
     "base": {"us_tariff_additional_pct": 0.0},
     "us_tariff_25pct": {"us_tariff_additional_pct": 25.0},
+    "us_tariff_50pct": {"us_tariff_additional_pct": 50.0},
 }

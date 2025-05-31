@@ -76,7 +76,7 @@ python main.py --scenario us_tariff_25pct
 2. **Compute a bump factor** –
 
 $$
-\text{bump} = 1 + \frac{25}{100} = 1.25
+\text{bump} =  \frac{25}{100} = 0.25
 $$
 
 3. **Add the incremental risk** –

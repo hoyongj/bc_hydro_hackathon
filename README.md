@@ -10,14 +10,14 @@ For each driver $x$:
 
 * **Min–max (default):**
 
-  $$
-  s_{c,x} = \frac{x_c - \min_k(x_k)}{\max_k(x_k) - \min_k(x_k)}
-  $$
+$$
+s_{c,x} = \frac{x_c - \min_k(x_k)}{\max_k(x_k) - \min_k(x_k)}
+$$
 * **Z-score (optional):**
 
-  $$
-  s_{c,x} = \frac{x_c - \mu_x}{\sigma_x}
-  $$
+$$
+s_{c,x} = \frac{x_c - \mu_x}{\sigma_x}
+$$
 
 #### **2. Internal Risk Score**
 

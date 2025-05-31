@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import matplotlib.colors as mcolors
 
-MODE_NAME = "base"
+MODE_NAME = "tariff25"
 df = pd.read_csv(f"risk_scores_{MODE_NAME}.csv")
 
 # Mapping dictionary (already provided by you)
@@ -40,16 +40,26 @@ df['portfolio'] = df['category_name'].map(category_to_portfolio)
 # Sort by risk score
 df_sorted = df.sort_values("scenario_risk_score", ascending=True)
 
-# Assign colors by portfolio
+# Generate pastel colors
+base_colors = cm.get_cmap('tab10').colors
+pastel_colors = [[(r + 1) / 2, (g + 1) / 2, (b + 1) / 2] for (r, g, b) in base_colors]
+
+# Assign pastel colors to portfolios
 portfolios = df_sorted['portfolio'].unique()
-portfolio_colors = dict(zip(portfolios, cm.get_cmap('tab10').colors[:len(portfolios)]))
+portfolio_colors = dict(zip(portfolios, pastel_colors[:len(portfolios)]))
 bar_colors = df_sorted['portfolio'].map(portfolio_colors)
 
 # Plot
 plt.figure(figsize=(10, 8))
-plt.barh(df_sorted["category_name"], df_sorted["scenario_risk_score"], color=bar_colors)
+bars = plt.barh(df_sorted["category_name"], df_sorted["scenario_risk_score"], color=bar_colors)
 plt.xlabel("scenario_risk_score")
 plt.ylabel("Category")
 plt.title(f"BC Hydro – Supply-Chain Risk by Category ({MODE_NAME} Scenario)")
+
+# Add legend
+legend_handles = [plt.Line2D([0], [0], color=color, lw=6, label=portfolio)
+                  for portfolio, color in portfolio_colors.items()]
+plt.legend(handles=legend_handles, title="Portfolio", loc='lower right')
+
 plt.tight_layout()
 plt.show()

@@ -27,6 +27,9 @@ def main():
         d / DEFAULT_LPI,
     )
 
+    if a.scenario == "base":
+        df = apply_us_tariff_scenario(df, add_pct=0.0)
+
     if a.scenario == "us_tariff_25pct":
         df = apply_us_tariff_scenario(df, add_pct=25.0)
 

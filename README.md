@@ -62,12 +62,13 @@ R^{\text{tariff}}_c = R^{\text{adj}}_c + d_{c,\text{US}} \dot 0.25
 $$
 
 $$
-+ d_{c,\text{US}} \dot 0.25
++ d_{c,\text{US}}
 $$
 
 $$
-R^{\text{tariff}}_c = R^{\text{adj}}_c
+\dot 0.25
 $$
+
 
 
 ## 1. Install 

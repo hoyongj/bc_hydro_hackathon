@@ -30,3 +30,8 @@ python main.py --scenario us_tariff_25pct --out risk_scores_tariff25.csv
 ```sh
 python main.py --scenario us_tariff_50pct --out risk_scores_tariff50.csv
 ```
+
+## 3. Results
+
+![img](fig/plot_base.png)
+![img](fig/plot_tariff25.png)

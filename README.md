@@ -11,7 +11,7 @@ pip install -r requirements.txt
 ## Install (windows)
 
 ```sh
-python -m venv bc_hydro_env
-bc_hydro_env\Scripts\activate
+python -m venv .bc_hydro_env
+.bc_hydro_env\Scripts\activate
 pip install -r requirements.txt
 ```

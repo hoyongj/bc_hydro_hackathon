@@ -51,6 +51,9 @@ if "Sub-Category" in category_df.columns:
     merged_df = pd.merge(merged_df, category_df[["Category", "Sub-Category"]], on="Category", how="left")
 
 # --- Output result ---
+    
+merged_df = merged_df[merged_df.notna()['Portfolio'].values]
+merged_df = merged_df[merged_df.notna()['Risk tolerance of the category'].values]
 
 # Print a preview of the final merged data
 print("\nMerged Data Columns:")

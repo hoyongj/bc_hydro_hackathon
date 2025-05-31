@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import matplotlib.colors as mcolors
 
-MODE_NAME = "tariff25"
+MODE_NAME = "base"
 df = pd.read_csv(f"risk_scores_{MODE_NAME}.csv")
 
 # Mapping dictionary (already provided by you)
@@ -17,6 +17,7 @@ category_to_portfolio = {
     "Wire And Cable": "Material & Logistics (Mark Robinson)",
     "Oth Gen Stn Equip": "Major Equipment & Construction (Peter Kobzar)",
     "Telecom": "Engineering & Technical Services (Gareth Clarke)",
+    "Telecom Equip": "Engineering & Technical Services (Gareth Clarke)",
     "EV Equip & Services": "Engineering & Technical Services (Gareth Clarke)",
     "Electrical Component": "Material & Logistics (Mark Robinson)",
     "Power Transformer": "Major Equipment & Construction (Peter Kobzar)",

@@ -56,25 +56,25 @@ def _internal_scores(inv_path, vendor_path) -> pd.DataFrame:
 # external metrics
 # ------------------------------------------------------------------ #
 def _external_scores(inv_path, lpi_path) -> pd.DataFrame:
+    """Return only the logistics score; leave US-dependency to _internal_scores()."""
     inv = load_vendor_inventory(inv_path)
     lpi = load_lpi(lpi_path)[["country_name", "lpi_score"]]
 
-    inv = inv.merge(lpi, left_on="country_of_origin", right_on="country_name", how="left")
-    inv["lpi_score"].fillna(lpi["lpi_score"].median(), inplace=True)
+    inv = inv.merge(
+        lpi, left_on="country_of_origin", right_on="country_name", how="left"
+    )
+    # avoid chained-assignment warning
+    inv["lpi_score"] = inv["lpi_score"].fillna(lpi["lpi_score"].median())
 
-    g = inv.groupby("category_name")["lpi_score"].mean().reset_index()
-    g["scaled_logistics"] = 1 - _scale(g["lpi_score"], kind=config.SCALING)
-
-    us_ratio = (
-        inv[inv["country_of_origin"].str.contains("United States", na=False)]
-        .groupby("category_name")["country_of_origin"]
-        .count()
-        .div(inv.groupby("category_name")["country_of_origin"].count())
-        .fillna(0)
-        .rename("us_dependency")
+    g = (
+        inv.groupby("category_name")["lpi_score"]
+        .mean()
+        .reset_index()
+        .rename(columns={"lpi_score": "avg_lpi"})
     )
 
-    return g.merge(us_ratio, on="category_name", how="left").fillna({"us_dependency": 0})
+    g["scaled_logistics"] = 1 - _scale(g["avg_lpi"], kind=config.SCALING)
+    return g[["category_name", "scaled_logistics"]]
 
 
 # ------------------------------------------------------------------ #

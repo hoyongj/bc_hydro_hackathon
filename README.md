@@ -65,7 +65,7 @@ $$
 
 ## 1. Install 
 
-### 1.1. macO
+### 1.1. macOS
 ```sh
 python3 -m venv .bc_hydro_env
 source .bc_hydro_env/bin/activate
